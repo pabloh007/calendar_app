@@ -1,0 +1,36 @@
+{% extends 'base_template.html' %}
+    {% block title %}
+    Register for Calendar Application
+    {% endblock %}
+{% block stylesheets %}
+{% load static %}
+<link href="{% static "calendar_app/css/signin.css" %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="container">
+<form class="form-signin" id="{{form_name}}" action="{% url "register"  %}" method="post">
+{% csrf_token %}
+<h2 class="form-signin-heading">Register User</h2>
+{% if error_message %}
+<div class="alert alert-warning" role="alert">{{error_message}}</div>
+{% endif %}
+{% for field in form.visible_fields %}
+{% if field.errors %}
+<div class="form-group has-error">
+{%else%}
+<div>
+{% endif %}
+<label for="{{field.id_for_label}}">{{field.label}}</label>
+{{field}}
+{% if field.help_text %}
+<span id="helpBlock" class="help-block">{{ field.help_text|safe }}  {{field.errors}}</span>
+{% endif %}
+</div>
+{% endfor %}
+{% for field in store_form.hidden_fields %}
+{{field}}<br/> 
+{% endfor %}
+<button class="btn btn-lg btn-primary btn-block" type="submi">Register</button>
+</form>    
+</div>
+{% endblock %}
