@@ -51,5 +51,12 @@ class RegisterUserForm(ModelForm):
             'email',
             )
 
-class AddCalendarForm(ModelForm):
-    model = 
+class AddCalendarNameForm(ModelForm):
+    calendar_name = CharField(
+        label='Name of Calendar',
+        help_text = 'Enter a Unique name of a Calendar',
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'CalendarName'}))
+       
+    model = CalendarNames
+    fields = ('calendar_name')

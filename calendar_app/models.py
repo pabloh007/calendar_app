@@ -9,8 +9,8 @@ class Users(models.Model):
     email = models.EmailField(max_length=100)
 
 class CalendarNames(models.Model):
-    calendar_name = models.CharField(max_length=100)
-    timestamp_created = models.DateTimeField()
+    calendar_name = models.CharField(max_length=100, unique=True)
+    timestamp_created = models.DateTimeField(auto_now_add=True)
 
 class Calendar(models.Model):
     title = models.CharField(max_length=250)
@@ -24,7 +24,7 @@ class CalendarNotes(models.Model):
     note_text = models.TextField()
     users = models.ForeignKey(Users)
     calendar = models.ForeignKey(Calendar)
-    timestamp_created = models.DateTimeField()
+    timestamp_created = models.DateTimeField(auto_now_add=True)
     shared = models.BooleanField()
 
 
