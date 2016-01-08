@@ -50,3 +50,6 @@ class RegisterUserForm(ModelForm):
         	'fullname',
         	'email',
         	)
+
+class AddCalendarForm(ModelForm):
+    model = 

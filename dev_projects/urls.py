@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 from calendar_app.views import LoginView, RegisterUserView, CalendarApplicationView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^calendar_app/$', LoginView.as_view(), name='login'),
     url(r'^calendar_app/register/$', RegisterUserView.as_view(), name='register'),
-    url(r'^calendar_app/main/$', CalendarApplicationView.as_view(), name='app_main'),
+    url(r'^calendar_app/main/$', login_required(CalendarApplicationView.as_view()), name='app_main'),
 ]

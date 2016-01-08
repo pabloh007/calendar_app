@@ -13,6 +13,9 @@ class LoginView(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		form = self.form_class
+		if request.GET.get('action',None) is not None and request.GET.get('action') == 'logout':
+			logout(request)
+			return HttpResponseRedirect('/calendar_app/')
 		return render(request, self.template_name, {'form': form})
 	def post(self, request, *args, **kwargs):
 		form = self.form_class(request.POST)
