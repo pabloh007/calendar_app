@@ -1,6 +1,6 @@
 from django.forms import Form, ModelForm, CharField, BooleanField, IntegerField, NullBooleanField, ModelChoiceField, HiddenInput, MultipleHiddenInput, ChoiceField, Textarea, EmailField, PasswordInput
 from django import forms
-from calendar_app.models import Users
+from calendar_app.models import Users, CalendarNames
 from django.utils.translation import ugettext_lazy as _
 
 class LoginUserForm(Form):
