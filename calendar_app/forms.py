@@ -5,51 +5,51 @@ from django.utils.translation import ugettext_lazy as _
 
 class LoginUserForm(Form):
     username = CharField(
-    	label='Username', 
-    	help_text='', 
-    	required=True, 
-    	strip=True, 
-    	widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))	
+        label='Username', 
+        help_text='', 
+        required=True, 
+        strip=True, 
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'})) 
     password = CharField(
-    	label='Password', 
-    	help_text='', 
-    	required=True, 
-    	strip=True, 
-    	widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+        label='Password', 
+        help_text='', 
+        required=True, 
+        strip=True, 
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
 
 class RegisterUserForm(ModelForm):
     
     username = CharField(
-    	label='Username', 
-    	help_text='joe1234', 
-    	required=True, 
-    	strip=True, 
-    	widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+        label='Username', 
+        help_text='joe1234', 
+        required=True, 
+        strip=True, 
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
     password = CharField(
-    	label='Password', 
-    	help_text='some super secret password', 
-    	required=True, 
-    	strip=True, 
-    	widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+        label='Password', 
+        help_text='some super secret password', 
+        required=True, 
+        strip=True, 
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
     fullname = CharField(
-    	label='Full Name', 
-    	help_text='joe somebody', 
-    	required=True, strip=True, 
-    	widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name'}))
+        label='Full Name', 
+        help_text='joe somebody', 
+        required=True, strip=True, 
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name'}))
     email = EmailField(
-    	label='Email', 
-    	help_text='joe@example.com', 
-    	required=True, 
-    	strip=True, 
-    	widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
+        label='Email', 
+        help_text='joe@example.com', 
+        required=True, 
+        strip=True, 
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
     
     class Meta:
         model = Users
         fields = ('username',
-        	'password',
-        	'fullname',
-        	'email',
-        	)
+            'password',
+            'fullname',
+            'email',
+            )
 
 class AddCalendarForm(ModelForm):
     model = 
